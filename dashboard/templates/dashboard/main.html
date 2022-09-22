@@ -1,4 +1,7 @@
 {% extends "dashboard/base.html" %}
+<link rel="stylesheet" href="~/lib/datatables.net-bs/css/dataTables.bootstrap.min.css" />
+<script src="~/lib/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="~/lib/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 {% block content %}
 <div class="d-flex justify-content-around">
@@ -113,9 +116,37 @@
   </div>
 </div>
 
+<table id="example" class="table table-hover table-condensed">
+  <thead>
+      <tr>
+        {% for label in chart_label %}
+          <td>{{label}}</td>
+        {% endfor %}
+      </tr>
+
+  </thead>
+  <tbody>
+      <tr>
+        {% for data in chart_data %}
+          <td>{{data}}</td>
+        {% endfor %}
+      </tr>
+  </tbody>
+</table>
+
+
+
+
 <script>
   const CHART_LABEL = {{chart_label|safe}};
   const CHART_DATA = {{chart_data|safe}};
 </script>
+
+<script>
+  $(function () {
+      $("#example").DataTable();
+  });
+</script>
+
 
 {% endblock %}
