@@ -2,10 +2,10 @@ const ctx = document.getElementById('barChart').getContext('2d');
 const barChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: CHART_LABEL,
         datasets: [{
             label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: CHART_DATA,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -36,13 +36,12 @@ const barChart = new Chart(ctx, {
 
 
 const doughnut = document.getElementById('doughnutChart');
-console.log('Hello')
 const doughnutChart = new Chart(doughnut, {
   type: 'doughnut',
   data: {
-    labels: ['Red', 'Green', 'Blue'],
+    labels: ['red','green','blue'],
     datasets: [{
-      data: [10, 20, 30],
+      data: [10,20,30],
       backgroundColor: ['#f88', '#484', '#48f'],
     }],
   },

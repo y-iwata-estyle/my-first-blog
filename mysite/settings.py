@@ -32,6 +32,8 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    'blog.apps.BlogConfig',
+    'dashboard.apps.DashboardConfig',
     # General use templates & template tags (should appear first)
     'adminlte3',
      # Optional: Django admin theme (must be before django.contrib.admin)
@@ -42,9 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog.apps.BlogConfig',
-    'dashboard.apps.DashboardConfig',
-    
 ]
 
 MIDDLEWARE = [
@@ -59,10 +58,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'mysite.urls'
 
+TEMPLATE_DIR = BASE_DIR / "templates"
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TEMPLATE_DIR],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
