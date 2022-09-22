@@ -33,3 +33,17 @@ const barChart = new Chart(ctx, {
         }
     }
 });
+
+
+const doughnut = document.getElementById('doughnutChart');
+console.log('Hello')
+const doughnutChart = new Chart(doughnut, {
+  type: 'doughnut',
+  data: {
+    labels: ['Red', 'Green', 'Blue'],
+    datasets: [{
+      data: [10, 20, 30],
+      backgroundColor: ['#f88', '#484', '#48f'],
+    }],
+  },
+});
