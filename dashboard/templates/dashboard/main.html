@@ -6,10 +6,10 @@
 {% block content %}
 <div class="d-flex justify-content-around align-items-center">
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
-          <h3 class="card-title">Card Example1</h3>
+          <h3 class="card-title">Bar Chart</h3>
           <div class="card-tools">
             <!-- This will cause the card to maximize when clicked -->
             <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -25,10 +25,10 @@
     </div>
   </div>
 
-  <div class="col-sm-4">
+  <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
-          <h3 class="card-title">DoughnutChart</h3>
+          <h3 class="card-title">Line Chart</h3>
           <div class="card-tools">
             <!-- This will cause the card to maximize when clicked -->
             <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -39,7 +39,7 @@
           </div>
       </div>
       <div class="card-body">
-        <canvas id="doughnutChart" ></canvas>
+        <canvas id="timelineChart" ></canvas>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@
 </div>
 
 
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around  align-items-center">
     <div class="col-sm-4">
         <div class="small-box bg-info">
             <div class="inner">
@@ -94,34 +94,45 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-around align-items-center">
-  <div class="col-sm-4">
-    <canvas id="barChart"></canvas>
-  </div>
-  <div class="col-sm-4">
-    <canvas id="doughnutChart" ></canvas>
+<div class="d-flex justify-content-around  align-items-center">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header">
+          <h3 class="card-title">Data Table</h3>
+          <div class="card-tools">
+            <!-- This will cause the card to maximize when clicked -->
+            <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
+            <!-- This will cause the card to collapse when clicked -->
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+            <!-- This will cause the card to be removed when clicked -->
+            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
+          </div>
+      </div>
+      <div class="card-body">
+        <table id="datatable" class="table table-hover table-condensed">
+          <thead>
+              <tr>
+                {% for label in chart_label %}
+                  <td>{{label}}</td>
+                {% endfor %}
+              </tr>
+        
+          </thead>
+          <tbody>
+            {% for data_list in chart_data %}
+              <tr>
+                {% for data in data_list %}
+                  <td>{{data}}</td>
+                {% endfor %}
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 
-<table id="example" class="table table-hover table-condensed">
-  <thead>
-      <tr>
-        {% for label in chart_label %}
-          <td>{{label}}</td>
-        {% endfor %}
-      </tr>
-
-  </thead>
-  <tbody>
-    {% for data_list in chart_data %}
-      <tr>
-        {% for data in data_list %}
-          <td>{{data}}</td>
-        {% endfor %}
-      </tr>
-    {% endfor %}
-  </tbody>
-</table>
 
 
 
@@ -133,7 +144,7 @@
 
 <script>
   $(function () {
-      $("#example").DataTable();
+      $("#datatable").DataTable();
   });
 </script>
 

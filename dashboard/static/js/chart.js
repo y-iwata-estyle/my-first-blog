@@ -5,7 +5,7 @@ const barChart = new Chart(ctx, {
         labels: CHART_LABEL,
         datasets: [{
             label: '# of Votes',
-            data: CHART_DATA,
+            data: [0,5,1,1,1,0],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',
@@ -50,6 +50,70 @@ const doughnutChart = new Chart(doughnut, {
             legend: {
                 position: 'bottom',
             },
+        }
+    }
+});
+
+
+var timeline = document.getElementById('timelineChart');
+var timelineChart = new Chart(timeline, {
+    //線グラフ
+    type: 'line',
+    //データ
+    data: {
+        //各データの時間
+        labels: ['09:00', '12:00', '15:00', '18:00', '21:00'],
+        //データセット
+        datasets: [{
+            label: '体温',
+            data: [25, 50, 35, 60, 0, 0],
+            borderColor: 'rgba(255, 99, 132, 1)', //線の色
+            backgroundColor: 'rgba(255, 99, 132, 0.1)' //塗りつぶしの色
+        }]
+    },
+    //グラフ設定
+    options: {
+        //凡例は非表示
+        legend: {
+            display: false
+        },
+        scales: {
+            //X軸
+            xAxes: [{
+                //軸ラベル表示
+                scaleLabel: {
+                    display: true,
+                    labelString: '時間'
+                },
+                //ここで軸を時間を設定する
+                type: 'time',
+                time: {
+                    parser: 'HH:mm',
+                    unit: 'hour',
+                    stepSize: 1,
+                    displayFormats: {
+                        'hour': 'HH:mm'
+                    }
+                },
+                //X軸の範囲を指定
+                ticks: {
+                    min: '09:00',
+                    max: '21:00'
+                }
+            }],
+            //Y軸
+            yAxes: [{
+                //軸ラベル表示
+                scaleLabel: {
+                    display: true,
+                    labelString: 'やる気'
+                },
+                //Y軸の範囲を指定
+                ticks: {
+                    min: 0,
+                    max: 100
+                }
+            }]
         }
     }
 });
