@@ -37,12 +37,19 @@ const barChart = new Chart(ctx, {
 
 const doughnut = document.getElementById('doughnutChart');
 const doughnutChart = new Chart(doughnut, {
-  type: 'doughnut',
-  data: {
-    labels: ['red','green','blue'],
-    datasets: [{
-      data: [10,20,30],
-      backgroundColor: ['#f88', '#484', '#48f'],
-    }],
-  },
+    type: 'doughnut',
+    data: {
+        labels: ['red', 'green', 'blue'],
+        datasets: [{
+            data: [10, 20, 30],
+            backgroundColor: ['#f88', '#484', '#48f'],
+        }],
+    },
+    options: {
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+        }
+    }
 });

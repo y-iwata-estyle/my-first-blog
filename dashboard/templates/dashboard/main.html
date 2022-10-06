@@ -4,9 +4,9 @@
 <script src="~/lib/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 
 {% block content %}
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around align-items-center">
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
           <h3 class="card-title">Card Example1</h3>
@@ -20,18 +20,15 @@
           </div>
       </div>
       <div class="card-body">
-          The body of the card
-      </div>
-      <div class="card-footer">
-          The footer of the card
+        <canvas id="barChart" ></canvas>
       </div>
     </div>
   </div>
 
-  <div class="col-sm-3">
+  <div class="col-sm-4">
     <div class="card">
       <div class="card-header">
-          <h3 class="card-title">Card Example2</h3>
+          <h3 class="card-title">DoughnutChart</h3>
           <div class="card-tools">
             <!-- This will cause the card to maximize when clicked -->
             <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
@@ -42,32 +39,7 @@
           </div>
       </div>
       <div class="card-body">
-          The body of the card
-      </div>
-      <div class="card-footer">
-          The footer of the card
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-3">
-    <div class="card">
-      <div class="card-header">
-          <h3 class="card-title">Card Example3</h3>
-          <div class="card-tools">
-            <!-- This will cause the card to maximize when clicked -->
-            <button type="button" class="btn btn-tool" data-card-widget="maximize"><i class="fas fa-expand"></i></button>
-            <!-- This will cause the card to collapse when clicked -->
-            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-            <!-- This will cause the card to be removed when clicked -->
-            <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-times"></i></button>
-          </div>
-      </div>
-      <div class="card-body">
-          The body of the card
-      </div>
-      <div class="card-footer">
-          The footer of the card
+        <canvas id="doughnutChart" ></canvas>
       </div>
     </div>
   </div>
@@ -105,9 +77,24 @@
             </a>
         </div>
     </div>
+
+    <div class="col-sm-4">
+      <div class="small-box bg-gradient-success">
+          <div class="inner">
+            <h3>44</h3>
+            <p>User Registrations</p>
+          </div>
+          <div class="icon">
+            <i class="fas fa-user-plus"></i>
+          </div>
+          <a href="#" class="small-box-footer">
+            More info <i class="fas fa-arrow-circle-right"></i>
+          </a>
+      </div>
+  </div>
 </div>
 
-<div class="d-flex justify-content-around">
+<div class="d-flex justify-content-around align-items-center">
   <div class="col-sm-4">
     <canvas id="barChart"></canvas>
   </div>
@@ -126,11 +113,13 @@
 
   </thead>
   <tbody>
+    {% for data_list in chart_data %}
       <tr>
-        {% for data in chart_data %}
+        {% for data in data_list %}
           <td>{{data}}</td>
         {% endfor %}
       </tr>
+    {% endfor %}
   </tbody>
 </table>
 
