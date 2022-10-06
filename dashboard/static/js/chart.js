@@ -4,23 +4,24 @@ const barChart = new Chart(ctx, {
     data: {
         labels: CHART_LABEL,
         datasets: [{
-            label: '# of Votes',
+            label: ['女子人気'],
             data: [0,5,1,1,1,0],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(255, 99, 132, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        },
+        {
+            label: ['男子人気'],
+            data: [1,2,3,0,1,1],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
         }]
@@ -35,24 +36,24 @@ const barChart = new Chart(ctx, {
 });
 
 
-const doughnut = document.getElementById('doughnutChart');
-const doughnutChart = new Chart(doughnut, {
-    type: 'doughnut',
-    data: {
-        labels: ['red', 'green', 'blue'],
-        datasets: [{
-            data: [10, 20, 30],
-            backgroundColor: ['#f88', '#484', '#48f'],
-        }],
-    },
-    options: {
-        plugins: {
-            legend: {
-                position: 'bottom',
-            },
-        }
-    }
-});
+// const doughnut = document.getElementById('doughnutChart');
+// const doughnutChart = new Chart(doughnut, {
+//     type: 'doughnut',
+//     data: {
+//         labels: ['red', 'green', 'blue'],
+//         datasets: [{
+//             data: [10, 20, 30],
+//             backgroundColor: ['#f88', '#484', '#48f'],
+//         }],
+//     },
+//     options: {
+//         plugins: {
+//             legend: {
+//                 position: 'bottom',
+//             },
+//         }
+//     }
+// });
 
 
 var timeline = document.getElementById('timelineChart');
@@ -65,7 +66,7 @@ var timelineChart = new Chart(timeline, {
         labels: ['09:00', '12:00', '15:00', '18:00', '21:00'],
         //データセット
         datasets: [{
-            label: '体温',
+            label: 'やる気',
             data: [25, 50, 35, 60, 0, 0],
             borderColor: 'rgba(255, 99, 132, 1)', //線の色
             backgroundColor: 'rgba(255, 99, 132, 0.1)' //塗りつぶしの色
